@@ -25,6 +25,9 @@ There is only a need to assign values on these properties, all the values will g
 - USER_POOL_ID
 - REGION
 
+[![](screenshots/screenshot-15.png)](screenshots/screenshot-15.png)
+[![](screenshots/screenshot-16.png)](screenshots/screenshot-16.png)
+
 ## Getting Started
 
 Run the development server:
