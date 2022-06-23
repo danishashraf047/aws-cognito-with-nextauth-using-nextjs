@@ -1,0 +1,36 @@
+{
+  "name": "aws-cognito-with-nextauth-using-nextjs",
+  "version": "0.0.1",
+  "private": true,
+  "author": {
+    "name": "Danish Ashraf",
+    "email": "me@danishashraf.net",
+    "url": "https://danishashraf.net"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "aws-jwt-verify": "^3.1.0",
+    "aws-sdk": "^2.1160.0",
+    "next": "12.1.6",
+    "next-auth": "^4.5.0",
+    "primeflex": "^3.2.1",
+    "primeicons": "^5.0.0",
+    "primereact": "^8.1.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-loading-overlay-ts": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.0.0",
+    "@types/react": "18.0.14",
+    "@types/react-dom": "18.0.5",
+    "eslint": "8.18.0",
+    "eslint-config-next": "12.1.6",
+    "typescript": "4.7.4"
+  }
+}
