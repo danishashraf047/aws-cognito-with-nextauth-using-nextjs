@@ -17,7 +17,7 @@ export function useStorageService() {
     const getUserRole = () => {
         const userData = getUserData();
         if (userData) {
-            return (userData.userData.UserAttributes as [UserAttributeModel]).find(ua => ua.Name == "custom:role")?.Value;
+            return (userData.token.user.attributes as [UserAttributeModel]).find(ua => ua.Name == "custom:role")?.Value;
         } else {
             return null;
         }

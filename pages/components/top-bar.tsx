@@ -1,26 +1,13 @@
-import { useRouter } from "next/router";
+import { signOut } from "next-auth/react";
 import styles from "../../styles/top-bar.module.css";
 import { useStorageService } from "../services/storage.service";
 
 const TopBarComponent = (props: any) => {
     const storageService = useStorageService();
-    const router = useRouter();
-    const userData = storageService.getUserData();
-
-    setTimeout(() => {
-        if (!userData) {
-            router.replace("/");
-        }
-        if (userData) {
-            if (`/${storageService.getUserRole()}` !== router.route) {
-                router.replace("/");
-            }
-        }
-    })
 
     function onSignOutClicked(event: any) {
         storageService.clearAll();
-        router.replace("/");
+        signOut({ callbackUrl: "/" });
     }
 
     return (
@@ -31,4 +18,4 @@ const TopBarComponent = (props: any) => {
     )
 }
 
-export default TopBarComponent
+export default TopBarComponent;
