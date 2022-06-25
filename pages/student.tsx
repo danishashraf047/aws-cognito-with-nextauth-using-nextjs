@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import TopBarComponent from './components/top-bar';
+import TopBarComponent from '../components/top-bar';
 
 const StudentPage: NextPage = () => {
     const type = "Student";

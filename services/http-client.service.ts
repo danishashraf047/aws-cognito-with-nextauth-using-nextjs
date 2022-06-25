@@ -1,4 +1,6 @@
+// we made custom http client service and it provides the functionality to make http requests
 export function useHttpClientService() {
+    // this arrow function will be used to make http requests
     const request = async (args: {
         url: string,
         method: "POST" | "GET" | "DELETE" | "PUT" | "PATCH"

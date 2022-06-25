@@ -5,6 +5,7 @@ import { signIn } from 'next-auth/react';
 
 export { RouteGuard };
 
+// it will intercept whenever the page navigation performs and will protect private pages if the user is not authenticated
 function RouteGuard({ children }: any) {
     const router = useRouter();
     const [showContent, setShowContent] = useState(false);

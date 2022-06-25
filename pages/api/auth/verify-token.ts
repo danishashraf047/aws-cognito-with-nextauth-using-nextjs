@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { CognitoJwtVerifier } from "aws-jwt-verify";
 
+// it's not using now
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<any>

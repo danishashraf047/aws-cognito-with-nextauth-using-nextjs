@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { cognitoClient } from '../core/cognito-client';
 
+// this api will be used to authenticate the user credentials and will return the result
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>

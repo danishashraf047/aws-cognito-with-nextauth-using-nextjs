@@ -5,9 +5,9 @@ import { Card } from 'primereact/card';
 import { useRef, useState } from 'react';
 import { Toast } from 'primereact/toast';
 import LoadingOverlay from 'react-loading-overlay-ts';
-import { useHttpClientService } from './services/http-client.service';
-import { UserRoles } from './constants/user-roles';
-import TopBarComponent from './components/top-bar';
+import { useHttpClientService } from '../services/http-client.service';
+import { UserRoles } from '../constants/user-roles';
+import TopBarComponent from '../components/top-bar';
 
 import styles from '../styles/admin.module.css';
 import "primereact/resources/themes/mdc-light-indigo/theme.css";
@@ -22,16 +22,20 @@ const TeacherPage: NextPage = () => {
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
     const [phone, setPhone] = useState("");
+    // it uses to show/hide loading overlay
     const [loading, setLoading] = useState(false);
 
     const type = "Teacher";
 
+    // it will use to make http request
     const httpClientService = useHttpClientService();
 
+    // it will invoke and check all the fields are valid or not
     function validateFields() {
         return username.length > 0 && password.length > 5 && firstname.length > 0 && lastname.length > 0 && phone.length > 0;
     }
 
+    // it will invoke when user clicks the create button
     function onCreateClicked(event: any) {
         if (validateFields()) {
             setLoading(true);

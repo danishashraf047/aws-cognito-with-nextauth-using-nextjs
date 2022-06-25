@@ -1,6 +1,7 @@
 // import { getToken } from 'next-auth/jwt';
 import { NextRequest, NextResponse } from 'next/server';
 
+// it will intercept everytime before serving the page by server
 export async function middleware(req: NextRequest) {
     // console.log("_middleware");
     // const token = await getToken({ req: req, secret: process.env.JWT_SECRET });

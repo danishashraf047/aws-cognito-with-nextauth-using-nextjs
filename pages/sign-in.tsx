@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { useRouter } from 'next/router';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
-import { useStorageService } from './services/storage.service';
+import { useStorageService } from '../services/storage.service';
 
 import styles from '../styles/sign-in.module.css';
 import "primereact/resources/themes/mdc-light-indigo/theme.css";
@@ -16,6 +16,7 @@ import "primeflex/primeflex.css";
 export default function SignIn({ csrfToken }: any) {
     const router = useRouter();
     const [error, setError] = useState(null);
+    // it will use to store session data to the localStorage
     const storageService = useStorageService();
 
     return (
@@ -30,6 +31,7 @@ export default function SignIn({ csrfToken }: any) {
                         .min(6, "Must be 6 characters or greater")
                         .required('Please enter your password')
                 })}
+                // it will invoke when all the fields will be valid and this function will pass the username and password to the NextAuth provider to authenticate the user credentials
                 onSubmit={async (values, { setSubmitting }) => {
                     const res: any = await signIn('credentials', {
                         redirect: false,
@@ -43,8 +45,10 @@ export default function SignIn({ csrfToken }: any) {
                         setError(null);
                     }
                     const session = await getSession();
+                    // here the session data will be stored in the localstorage
                     storageService.saveUserData(session);
                     setSubmitting(false);
+                    // it will redirect the user to the desired page based on user role
                     if (res.url) router.replace(`/${storageService.getUserRole()}`);
                 }}
             >
@@ -101,6 +105,7 @@ export default function SignIn({ csrfToken }: any) {
     );
 }
 
+// this function will receive the server-side props and provide the props to the client-side component which is SignIn
 export async function getServerSideProps(context: any) {
     return {
         props: {
