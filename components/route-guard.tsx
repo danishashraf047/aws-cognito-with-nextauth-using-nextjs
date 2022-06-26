@@ -13,6 +13,7 @@ function RouteGuard({ children }: any) {
     const userData = storageService.getUserData();
     const userRole = storageService.getUserRole();
 
+    // it will use to show/hide the content based on authCheck
     useEffect(() => {
         authCheck(router.asPath);
         const hideContent = () => setShowContent(false);
@@ -24,6 +25,7 @@ function RouteGuard({ children }: any) {
         }
     }, []);
 
+    // it will check the route for authenticated users that route must be shown or hidden to the user or not
     function authCheck(url: any) {
         const path: string = url.split('?')[0];
         const publicPaths = ['/sign-in', '/'];
@@ -35,10 +37,6 @@ function RouteGuard({ children }: any) {
                 } else {
                     setShowContent(true);
                 }
-                // router.push({
-                //     pathname: '/sign-in',
-                //     // query: { returnUrl: router.asPath }
-                // });
             } else {
                 setShowContent(false);
                 signIn();
