@@ -5,6 +5,8 @@ import { useStorageService } from "../services/storage.service";
 const TopBarComponent = (props: any) => {
     const storageService = useStorageService();
 
+    const userData = storageService.getUserData();
+
     // it will invoke when the user clicks on sign-out button and it will also remove the session data from localStorage    
     function onSignOutClicked(event: any) {
         storageService.clearAll();
@@ -13,7 +15,7 @@ const TopBarComponent = (props: any) => {
 
     return (
         <div className={styles.topnav}>
-            <a className={styles.active} href="#home">{props.type}</a>
+            <a className={styles.active} href="#home">{userData.token.user.username}</a>
             <a onClick={onSignOutClicked}>Sign out</a>
         </div>
     )
