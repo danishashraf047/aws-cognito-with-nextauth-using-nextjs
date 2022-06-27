@@ -2,11 +2,6 @@
   "name": "aws-cognito-with-nextauth-using-nextjs",
   "version": "0.0.1",
   "private": true,
-  "author": {
-    "name": "Danish Ashraf",
-    "email": "me@danishashraf.net",
-    "url": "https://danishashraf.net"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
