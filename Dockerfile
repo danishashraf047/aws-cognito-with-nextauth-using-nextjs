@@ -1,6 +1,3 @@
-# FROM public.ecr.aws/bitnami/node:14.15.1-debian-10-r8
-# FROM node:18-alpine
-# FROM node:16-alpine
 FROM node:14-alpine
 WORKDIR /app
 
